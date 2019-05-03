@@ -3,24 +3,25 @@
 """Normalize a sentence."""
 
 import re
+from unicodedata import normalize
 
 import create_mappings as maps
 
-def allAsciiToHalfwidth(sentence):
-   """Convert all fullwidth ASCII in sentence to halfwidth."""
-   newSent = sentence.translate(maps.asciiFullToHalfMapping)
-   return newSent
+# def allAsciiToHalfwidth(sentence):
+#    """Convert all fullwidth ASCII in sentence to halfwidth."""
+#    newSent = sentence.translate(maps.asciiFullToHalfMapping)
+#    return newSent
 
 
-def normalizeAscii(sentence):
-   """Normalize all ASCII."""
-   newSent = allAsciiToHalfwidth(sentence).lower()
-   return newSent
+# def normalizeAscii(sentence):
+#    """Normalize all ASCII."""
+#    newSent = allAsciiToHalfwidth(sentence).lower()
+#    return newSent
 
-def allJapaneseToFullwidth(sentence):
-   """Convert all halfwidth Japanese in sentence to fullwidth."""
-   newSent = sentence.translate(maps.japHalfToFullMapping)
-   return newSent
+# def allJapaneseToFullwidth(sentence):
+#    """Convert all halfwidth Japanese in sentence to fullwidth."""
+#    newSent = sentence.translate(maps.japHalfToFullMapping)
+#    return newSent
 
 def replacePunctuation(sentence):
    """Replace all characters considered as punctuation with a space."""
@@ -55,8 +56,9 @@ def deleteSpacesWithinJapanese(sentence):
 
 def normalizeSentence(sentence):
    """Normalize a string by running through helper functions in order."""
-   sentence = normalizeAscii(sentence)
-   sentence = allJapaneseToFullwidth(sentence)
+   sentence = normalize("NFKC", sentence)
+   # sentence = normalizeAscii(sentence)
+   # sentence = allJapaneseToFullwidth(sentence)
    sentence = replacePunctuation(sentence)
    sentence = replaceNonAsciiKanaKanji(sentence)
    sentence = cleanWhitespace(sentence)
