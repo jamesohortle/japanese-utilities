@@ -26,7 +26,7 @@ The second file cumulates in a function imaginatively called `normalizeSentence(
 
 ## Transcribing sound files with [Julius](https://github.com/julius-speech/julius)
 
-The next step is to take sound files from LibriVox and split them into little chunks, roughly corresponding to clauses in the original text. We use James Robert's [Pydub](https://github.com/jiaaro/pydub) to split up sound files along silences of adequate length. If sound files are not long enough, transcription is impossible, so we ensure a minimum length. The file is `split_on_audio.py`.
+The next step is to take sound files from LibriVox and split them into little chunks, roughly corresponding to clauses in the original text. We use James Robert's [Pydub](https://github.com/jiaaro/pydub) to split up sound files along silences of adequate length. If sound files are not long enough, transcription is impossible, so we ensure a minimum length. The file is `split_audio_on_silence.py`.
 
 Once sound files have been made, they are saved in the correct format (WAV) for processing and lists of the files to be processed are created with `make_filelist.py`.
 
