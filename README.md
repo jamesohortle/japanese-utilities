@@ -16,7 +16,7 @@ For normalization, we have `create_mappings.py` and `normalize.py`. The aim of t
 - half-width _katakana_ and other Japanese symbols to full-width Japanese,
 - punctuation to `\u0020` (an ASCII space) (this particular mapping is over-zealous and removes historical _etc_. punctuation).
 
-If you wish to edit this file, make sure your editor is capable of displaying Unicode, otherwise there will be plenty of _mojibaké_ (not as tasty as it sounds). Although creating them doesn't take particularly long, pickle files of the mappings are saved so that we can simply load them and save precious time instead.
+If you wish to edit this file, make sure your editor is capable of displaying Unicode, otherwise there will be plenty of [_mojibaké_](https://en.wikipedia.org/wiki/Mojibake) (not as tasty as it sounds). Although creating them doesn't take particularly long, pickle files of the mappings are saved so that we can simply load them and save precious time instead.
 
 The second file cumulates in a function imaginatively called `normalizeSentence()` which takes a sentence and applies certain regexes and the above mappings to produce a normalized sentence. This includes removing all characters not used in ASCII or typically in Japanese (useful for stripping place names in their native language from Wikipedia articles, for example) and removing duplicate and unnecessary whitespace.
 
@@ -34,7 +34,7 @@ Connecting to the Julius servers and yielding the transcriptions are performed b
 
 The file `fuzzy_match.py` attempts to find candidate matches of transcriptions and source text. It does this by using [MeCab](https://taku910.github.io/mecab/)'s (developed by Kyoto University Graduate School of Informatics)  _wakati_ and _yomi_ parsers to perform a combined surface form and pronunciation comparison. In short, good candidates for a transcription are things that "sort of look the same" and "sort of sound the same". The comparison is simply a weighted sum of these two criteria, which is judged as "good" if it passes some threshold. The scores for each criterion are generated using [Levenshtein distances](https://en.wikipedia.org/wiki/Levenshtein_distance) as calculated by SeatGeek's [FuzzyWuzzy](https://github.com/seatgeek/fuzzywuzzy) package.
 
-Candidate translations are then saved in the SQLite databases mentioned above. This file is the least polished of all of them and should be regarded as unstable.
+Candidate source text sentences are then saved in the SQLite databases mentioned above. This file is the least polished of all of them and should be regarded as unstable.
 
 ## Further work
 
