@@ -1,6 +1,6 @@
-# Japanese Text Utilities
+# Japanese Utilities
 
-This repository provides some utilities developed for working with Japanese text. They were originally part of a larger project on voice synthesis and recognition in Japanese. None of the files have been edited for their inclusion here and users are expected to edit files as necessary for their own purposes. The sub-goal of this part of the project was to locate the source text of an utterance, _i.e._, to find the sentence in the text file which the volunteer had just spoken.
+This repository provides some utilities developed for working with Japanese text and voice. They were originally part of a larger project on voice synthesis and recognition in Japanese. None of the files have been edited for their inclusion here and users are expected to edit files as necessary for their own purposes. The sub-goal of this part of the project was to locate the source text of an utterance, _i.e._, to find the sentence in the text file which the volunteer had just spoken.
 
 ## Goals/Original Project
 
