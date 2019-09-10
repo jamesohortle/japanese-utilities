@@ -8,7 +8,7 @@ Voice recognition and voice synthesis have become ubiquitous technologies. Howev
 
 ## Scraping
 
-The script `scrape.py` uses the [LibriVox](https://librivox.org/) [API](https://librivox.org/api/info) in order to find Japanese texts that have been performed by volunteers (a set of sound and text files is referred to as a _work_). The sound files are downloaded, along with the raw text, which is often from [Aozora Bunko](https://www.aozora.gr.jp/). Unfortunately, the LibriVox API is not well-maintained and does not, as of 03 May 2019, provide a way find all works in a particular language. To compensate for this, we use a heuristic based on the total number of works in LibriVox and simply loop through a sufficient number of IDs. This probably misses some works and suggestions/pull requests to remedy this are welcomed. For later examination, JSON files containing data on the work are saved in the work's directory, as are pickle files of the scraped IDs, _etc_. Besides the LibriVox API, help is also provided by [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/).
+The script `scrape.py` uses the [LibriVox](https://librivox.org/) [API](https://librivox.org/api/info) in order to find Japanese texts that have been performed by volunteers (a set of sound and text files is referred to as a _work_). The sound files are downloaded, along with the raw text, which is often from [Aozora Bunko](https://www.aozora.gr.jp/). Unfortunately, the LibriVox API is not well-maintained and does not, as of 03 May 2019, provide a way to find all works in a particular language. To compensate for this, we use a heuristic based on the total number of works in LibriVox and simply loop through a sufficient number of IDs. This probably misses some works and suggestions/pull requests to remedy this are welcomed. For later examination, JSON files containing data on the work are saved in the work's directory, as are pickle files of the scraped IDs, _etc_. Besides the LibriVox API, help is also provided by [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/).
 
 ## Normalization
 
@@ -42,6 +42,6 @@ Candidate source text sentences are then saved in the SQLite databases mentioned
 
 ## Further work
 
-- Refine the fuzzy matching algorithm to actually be good and not be bad.
+- Refine the fuzzy matching algorithm.
 - Ensure that we are indeed scraping all Japanese works from LibriVox.
 - Find all Japanese works in the public domain available on Aozora Bunko and scrape and normalize them as well.
